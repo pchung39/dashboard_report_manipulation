@@ -36,6 +36,17 @@ df.insert(53, "Other API Calls", 0)
 
 # Create "Sum of Usage" column and sum up usage columns and print results in sum of usage column
 # Usage Generated columns are "objects" need to convert to "integers"
+
+# Replicate format below for all other usage types
+# Currently running df["sum of usage"] will simply concatenate all ints. Need to figure out how to make them sum
+df['Clicks Generated'].astype(str)
+df['Clicks Generated'] = df['Clicks Generated'].str.replace(",","")
+df['Clicks Generated'].astype(int)
+
+df['Leads Generated'].astype(str)
+df['Leads Generated'] = df['Leads Generated'].str.replace(",","")
+df['Leads Generated'].astype(int)
+
 df['Sum of Usage'] = df['Clicks Generated'] + df['Leads Generated']
 
 # export this son of a bitch, index = False makes sure that the additional row numbers are not included in the export
